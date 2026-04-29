@@ -63,3 +63,82 @@ body {
   width: 100%;
   height: 100%;
 }
+
+/* ---------- Solar System Diagram ---------- */
+
+.diagram {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.diagram svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.orbit-ring {
+  fill: none;
+  stroke: rgba(232, 230, 223, 0.10);
+  stroke-width: 1;
+  stroke-dasharray: 2 4;
+}
+.orbit-ring.active {
+  stroke: var(--accent);
+  stroke-opacity: 0.55;
+  stroke-dasharray: none;
+}
+
+.planet-hit {
+  cursor: pointer;
+}
+.planet-hit:hover .planet-disc {
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+.planet-disc {
+  transition: filter 200ms ease;
+}
+
+.planet-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  fill: var(--ink-dim);
+  cursor: pointer;
+  user-select: none;
+  transition: fill 180ms ease;
+}
+.planet-label:hover, .planet-hit:hover + .planet-label {
+  fill: var(--ink);
+}
+.planet-label.active {
+  fill: var(--accent);
+}
+
+.label-tick {
+  stroke: var(--ink-faint);
+  stroke-width: 1;
+}
+.label-tick.active {
+  stroke: var(--accent);
+  stroke-opacity: 0.7;
+}
+
+.sun-glow {
+  fill: var(--sun);
+  opacity: 0.18;
+  filter: blur(20px);
+}
+.sun-core {
+  fill: var(--sun);
+  cursor: pointer;
+}
+
+@keyframes selectedPulse {
+  0%, 100% { r: var(--base-r); opacity: 0.0; }
+  50% { r: calc(var(--base-r) * 2.4); opacity: 0.5; }
+}
