@@ -18,12 +18,12 @@ export const overviewData: OverviewData = {
         }
     ],
     stats: [
-        { k: "Age", v: "4.603", u: "Gyr" },
-        { k: "Planets", v: "8", u: "" },
-        { k: "Dwarf Planets", v: "5", u: "recognized" },
-        { k: "Known Moons", v: "300+", u: "" },
-        { k: "Heliopause", v: "≈120", u: "AU" },
-        { k: "Local Group", v: "Orion Arm", u: "Milky Way" }
+        { key: "Age", value: "4.603", unit: "Gyr" },
+        { key: "Planets", value: "8", unit: "" },
+        { key: "Dwarf Planets", value: "5", unit: "recognized" },
+        { key: "Known Moons", value: "300+", unit: "" },
+        { key: "Heliopause", value: "≈120", unit: "AU" },
+        { key: "Local Group", value: "Orion Arm", unit: "Milky Way" }
     ]
 }
 
@@ -40,12 +40,12 @@ export const sunData: SunData = {
         "Light from the photosphere takes 8 minutes 20 seconds to reach Earth. The Sun is currently in its hydrogen-burning phase, with an estimated 5 billion years remaining before red-giant expansion."
     ],
     stats: [
-        { k: "Radius", v: "695,700", u: "km" },
-        { k: "Mass", v: "1.989×10³⁰", u: "kg" },
-        { k: "Surface Temp", v: "5,778", u: "K" },
-        { k: "Core Temp", v: "15.7", u: "MK" },
-        { k: "Luminosity", v: "3.828×10²⁶", u: "W" },
-        { k: "Age", v: "4.603", u: "Gyr" }
+        { key: "Radius", value: "695,700", unit: "km" },
+        { key: "Mass", value: "1.989×10³⁰", unit: "kg" },
+        { key: "Surface Temp", value: "5,778", unit: "K" },
+        { key: "Core Temp", value: "15.7", unit: "MK" },
+        { key: "Luminosity", value: "3.828×10²⁶", unit: "W" },
+        { key: "Age", value: "4.603", unit: "Gyr" }
     ]
 }
 
