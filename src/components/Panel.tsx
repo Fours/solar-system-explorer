@@ -9,7 +9,7 @@ interface PanelProps {
 
 export default function Panel({ selectedId }: PanelProps) {
     let content;
-    if (!selectedId) content = <OverviewInfo />;
+    if (selectedId === "") content = <OverviewInfo />;
     else if (selectedId === "sun") content = <SunInfo />;
     else {
         const planet = planetsData.find((p) => p.id === selectedId)!;

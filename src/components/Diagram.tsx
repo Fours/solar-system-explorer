@@ -4,7 +4,7 @@ import { planetsData, sunData } from "../data/data";
 
 interface DiagramProps {
     selectedId: string
-    onSelect: (id: string | null) => void
+    onSelect: (id: string) => void
     paused: boolean
     speed: number
 }

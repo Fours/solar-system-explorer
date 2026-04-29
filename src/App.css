@@ -152,6 +152,83 @@ body {
   50% { r: calc(var(--base-r) * 2.4); opacity: 0.5; }
 }
 
+/* ---------- HUD overlays ---------- */
+
+.hud {
+  position: absolute;
+  z-index: 3;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  pointer-events: none;
+}
+
+.hud-tl { top: 24px; left: 28px; }
+
+.hud-bl { bottom: 24px; left: 28px; }
+
+.hud-tl .brand-mark {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.hud-tl .brand-sub {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.hud-tl .dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent);
+}
+
+.hud-bl .legend {
+  display: flex;
+  gap: 18px;
+  margin-top: 8px;
+}
+
+.hud-bl .legend span { color: var(--ink-faint); }
+
+.hud-bl .legend b { color: var(--ink-dim); font-weight: 500; }
+
+.controls {
+  position: absolute;
+  z-index: 3;
+  bottom: 24px;
+  right: calc(420px + 28px);
+  display: flex;
+  gap: 8px;
+  pointer-events: auto;
+}
+
+.ctrl {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  background: rgba(232, 230, 223, 0.04);
+  border: 1px solid var(--rule-strong);
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 160ms ease;
+}
+
+.ctrl:hover { color: var(--ink); border-color: var(--ink-dim); }
+
+.ctrl.on { color: var(--accent); border-color: var(--accent-dim); }
+
 /* ---------- Info Panel ---------- */
 
 .panel {
@@ -338,3 +415,66 @@ body {
 }
 
 .compare-bar.earth > i { background: var(--ink-dim); }
+
+
+/* ---------- Moons Chips ---------- */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  padding: 5px 9px;
+  border: 1px solid var(--rule-strong);
+}
+
+.chip.more { color: var(--ink-faint); border-style: dashed; }
+
+
+/* ---------- Hint when nothing selected ---------- */
+
+.hint {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.hint .arrow {
+  width: 24px; height: 1px; background: var(--accent);
+  position: relative;
+}
+
+.hint .arrow::after {
+  content: ""; position: absolute; right: 0; top: -3px;
+  width: 7px; height: 7px;
+  border-top: 1px solid var(--accent);
+  border-right: 1px solid var(--accent);
+  transform: rotate(45deg);
+}
+
+/* ---------- Footer ---------- */
+
+.panel-foot {
+  padding: 14px 32px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
