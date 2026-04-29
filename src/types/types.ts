@@ -1,8 +1,8 @@
 
 export interface Stat {
-    k: string
-    v: string
-    u: string
+    key: string
+    value: string
+    unit: string
 }
 
 export interface SunData {
