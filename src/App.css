@@ -151,3 +151,42 @@ body {
   0%, 100% { r: var(--base-r); opacity: 0.0; }
   50% { r: calc(var(--base-r) * 2.4); opacity: 0.5; }
 }
+
+/* ---------- Stat Grid ---------- */
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+
+.stat {
+  background: rgba(8, 8, 10, 0.85);
+  padding: 14px 14px 12px;
+}
+
+.stat-key {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 6px;
+}
+
+.stat-val {
+  font-family: var(--serif);
+  font-size: 22px;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.stat-unit {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ink-dim);
+  letter-spacing: 0.1em;
+  margin-left: 4px;
+}
