@@ -190,3 +190,47 @@ body {
   letter-spacing: 0.1em;
   margin-left: 4px;
 }
+
+/* ---------- Comparison Bars ---------- */
+
+.compare {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.compare-row {
+  display: grid;
+  grid-template-columns: 90px 1fr 56px;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.compare-row .label { 
+    color: var(--ink-dim); 
+}
+
+.compare-row .val { 
+    color: var(--ink); 
+    text-align: right; 
+}
+
+.compare-bar {
+  height: 4px;
+  background: rgba(232, 230, 223, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.compare-bar > i {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--accent);
+  display: block;
+}
+
+.compare-bar.earth > i { background: var(--ink-dim); }
