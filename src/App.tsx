@@ -1,11 +1,12 @@
+import Starfield from './components/Starfield'
 import './App.css'
 
 function App() {
 
   return (
-    <>
-      <h1>asdf</h1>
-    </>
+    <div className="app">
+      <Starfield />
+    </div>
   )
 }
 

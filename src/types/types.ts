@@ -53,3 +53,13 @@ export interface PlanetData {
     body: string[]
     composition: string
 }
+
+export interface Star {
+    x: number
+    y: number
+    r: number
+    a: number
+    tw: number
+    phase: number
+    bright: boolean,
+}
