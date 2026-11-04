@@ -11,6 +11,7 @@
     "deploy": "bash scripts/deploy.sh"
   },
   "dependencies": {
+    "posthog-js": "^1.446.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5"
   },
