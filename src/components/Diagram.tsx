@@ -49,7 +49,7 @@ export default function Diagram({ selectedId, onSelect, paused, speed }: Diagram
     const scale = Math.min((size.w - margin * 2) / 2, (size.h - margin * 2) / 2) / maxOrbit;
 
     return (
-        <div className="diagram" ref={stageRef}>
+        <div className="diagram" ref={stageRef} onClick={() => onSelect("")}>
         <svg viewBox={`0 0 ${size.w} ${size.h}`} preserveAspectRatio="none">
             <defs>
             <radialGradient id="sunGrad" cx="50%" cy="50%" r="50%">
@@ -85,7 +85,7 @@ export default function Diagram({ selectedId, onSelect, paused, speed }: Diagram
             r={sunData.displayRadius}
             fill="url(#sunGrad)"
             className="sun-core"
-            onClick={() => onSelect("sun")}
+            onClick={(e) => { e.stopPropagation(); onSelect("sun"); }}
             />
             {selectedId === "sun" && (
             <circle cx={cx} cy={cy} r={sunData.displayRadius + 6}
@@ -137,7 +137,7 @@ export default function Diagram({ selectedId, onSelect, paused, speed }: Diagram
                 {/* Planet hit area + disc */}
                 <g
                     className="planet-hit"
-                    onClick={() => onSelect(p.id)}
+                    onClick={(e) => { e.stopPropagation(); onSelect(p.id); }}
                     style={{ color: p.color }}
                 >
                     <circle cx={px} cy={py} r={Math.max(p.displayRadius + 6, 12)} fill="transparent" />
@@ -155,7 +155,7 @@ export default function Diagram({ selectedId, onSelect, paused, speed }: Diagram
                     y={ly + labelPadY}
                     textAnchor={anchor}
                     className={`planet-label ${isSel ? "active" : ""}`}
-                    onClick={() => onSelect(p.id)}
+                    onClick={(e) => { e.stopPropagation(); onSelect(p.id); }}
                 >
                     {p.name}
                 </text>
