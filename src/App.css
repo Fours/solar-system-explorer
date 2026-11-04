@@ -244,9 +244,49 @@ body {
 }
 
 .panel-head {
+  position: relative;
   padding: 88px 32px 22px;
   border-bottom: 1px solid var(--rule);
+  overflow: hidden;
 }
+
+/* Planet / sun artwork in the top-right of the header. The source images
+   are keyed to transparency, so each body sits directly on the dark panel.
+   --planet-img is set per body in the info components; when it is absent
+   (e.g. the overview panel) the header renders with no image. Size and
+   position are tuned per body via the data-body rules below. */
+.panel-head::after {
+  content: "";
+  position: absolute;
+  top: var(--art-top, 14px);
+  right: var(--art-right, 20px);
+  width: var(--art-w, 150px);
+  height: var(--art-h, 150px);
+  background-image: var(--planet-img);
+  background-size: contain;
+  background-position: top right;
+  background-repeat: no-repeat;
+  opacity: var(--art-opacity, 1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Keep the header text above the artwork. */
+.panel-head > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ----- Per-body artwork sizing / placement ----- */
+.panel-head[data-body="sun"]     { --art-w: 170px; --art-h: 157px; --art-top: 6px;  --art-right: 12px; }
+.panel-head[data-body="mercury"] { --art-w: 74px;  --art-h: 148px; --art-top: 6px;  --art-right: 30px; }
+.panel-head[data-body="venus"]   { --art-w: 140px; --art-h: 152px; --art-top: 6px;  --art-right: 18px; }
+.panel-head[data-body="earth"]   { --art-w: 148px; --art-h: 148px; --art-top: 10px; --art-right: 18px; }
+.panel-head[data-body="mars"]    { --art-w: 150px; --art-h: 136px; --art-top: 12px; --art-right: 18px; }
+.panel-head[data-body="jupiter"] { --art-w: 156px; --art-h: 150px; --art-top: 8px;  --art-right: 16px; }
+.panel-head[data-body="saturn"]  { --art-w: 236px; --art-h: 115px; --art-top: 24px; --art-right: 6px;  }
+.panel-head[data-body="uranus"]  { --art-w: 146px; --art-h: 143px; --art-top: 12px; --art-right: 18px; }
+.panel-head[data-body="neptune"] { --art-w: 146px; --art-h: 147px; --art-top: 12px; --art-right: 18px; }
 
 .panel-eyebrow {
   font-family: var(--mono);

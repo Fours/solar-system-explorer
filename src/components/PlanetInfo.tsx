@@ -1,4 +1,5 @@
 
+import type { CSSProperties } from "react";
 import StatGrid from "./StatGrid";
 import CompareBar from "./CompareBar";
 import { planetsData } from "../data/data";
@@ -25,7 +26,7 @@ export default function PlanetInfo({ planet }: PlanetInfoProps) {
 
     return (
         <>
-        <div className="panel-head">
+        <div className="panel-head" data-body={planet.id} style={{ "--planet-img": `url(/planets/${planet.id}.png)` } as CSSProperties}>
             <div className="panel-eyebrow">
             <span>Planetary Body</span>
             </div>

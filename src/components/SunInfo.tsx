@@ -1,10 +1,11 @@
+import type { CSSProperties } from "react";
 import StatGrid from "./StatGrid";
 import { sunData } from "../data/data";
 
 export default function SunInfo() {
     return (
         <>
-            <div className="panel-head">
+            <div className="panel-head" data-body="sun" style={{ "--planet-img": "url(/planets/sun.png)" } as CSSProperties}>
                 <div className="panel-eyebrow">
                 <span>Stellar Body</span>
                 </div>
