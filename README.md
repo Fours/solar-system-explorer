@@ -11,3 +11,5 @@ This is a Solar System explorer web app written in React with Typescript. It fea
 <img src="https://raw.githubusercontent.com/Fours/solar-system-explorer/refs/heads/main/docs/solar-system-explorer.png" width="800">
 
 <img src="https://raw.githubusercontent.com/Fours/solar-system-explorer/refs/heads/main/docs/solar-system-explorer-mars.png" width="800">
+## Deploying
+Deployed to S3 + CloudFront with `npm run deploy`. See [DEPLOY.md](DEPLOY.md) for setup.
