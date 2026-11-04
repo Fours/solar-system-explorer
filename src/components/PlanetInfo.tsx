@@ -2,7 +2,6 @@
 import type { CSSProperties } from "react";
 import StatGrid from "./StatGrid";
 import CompareBar from "./CompareBar";
-import { planetsData } from "../data/data";
 import type { PlanetData, Stat } from "../types/types";
 
 interface PlanetInfoProps {
@@ -10,7 +9,6 @@ interface PlanetInfoProps {
 }
 
 export default function PlanetInfo({ planet }: PlanetInfoProps) {
-    const idx = planetsData.findIndex((p) => p.id === planet.id) + 1;
     const stats: Stat[] = [
         { key: "Distance", value: planet.auDistance.toString(), unit: "AU" },
         { key: "Diameter", value: planet.diameterKm.toLocaleString(), unit: "km" },
