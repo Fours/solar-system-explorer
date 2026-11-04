@@ -38,7 +38,7 @@ function App() {
             </div>
 
             <div className="hud hud-bl">
-                <div>Display · Schematic · Not to Scale</div>
+                <div>Schematic · Not to Scale</div>
                 <div className="legend">
                     <span><b>Click</b> a body to inspect</span>
                     <span><b>Space</b> pause</span>
