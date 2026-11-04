@@ -2,11 +2,11 @@
 
 The site is a static build (`dist/`) hosted on **S3 behind CloudFront**:
 
-- **Bucket:** `kylewillett.com`, objects under the `solar-system-explorer/` prefix
-  (`s3://kylewillett.com/solar-system-explorer/`)
+- **Bucket:** `kylewillett.com`, objects under the `solar-system/` prefix
+  (`s3://kylewillett.com/solar-system/`)
 - **Region:** `us-east-1`
-- **Served at a subdomain root** (e.g. `solar.kylewillett.com`). CloudFront's
-  **Origin Path** is set to `/solar-system-explorer`, so the app sees itself at `/` —
+- **Served at a subdomain root** (e.g. `solar-system.kylewillett.com`). CloudFront's
+  **Origin Path** is set to `/solar-system`, so the app sees itself at `/` —
   that's why Vite's `base` stays the default `/` and no path rewriting is needed.
 - Bucket stays **private**; CloudFront reads it via an **Origin Access Control (OAC)**.
 
@@ -57,7 +57,7 @@ The script reads these from the environment or `scripts/deploy.config.local`:
 | --- | --- | --- |
 | `CLOUDFRONT_DISTRIBUTION_ID` | *(required)* | Distribution to invalidate |
 | `DEPLOY_BUCKET` | `kylewillett.com` | Target bucket |
-| `DEPLOY_PREFIX` | `solar-system-explorer` | Key prefix within the bucket |
+| `DEPLOY_PREFIX` | `solar-system` | Key prefix within the bucket |
 | `DEPLOY_REGION` | `us-east-1` | Bucket region |
 
 ## IAM permissions
@@ -66,23 +66,18 @@ Give the deploying identity only what the script needs. For a human deploying fr
 a laptop, **IAM Identity Center (SSO)** is preferred; a dedicated, tightly scoped IAM
 user with rotated keys also works.
 
-The policy in [`deploy/iam-policy.json`](deploy/iam-policy.json) grants:
-
-- `s3:ListBucket` on `kylewillett.com`, limited to the `solar-system-explorer/` prefix
-- `s3:PutObject` / `s3:DeleteObject` under `solar-system-explorer/*`
+- `s3:ListBucket` on `kylewillett.com`, limited to the `solar-system/` prefix
+- `s3:PutObject` / `s3:DeleteObject` under `solar-system/*`
 - `cloudfront:CreateInvalidation` on the one distribution
 
-Before attaching it, replace `ACCOUNT_ID` (12-digit AWS account ID) and `DIST_ID`
-(the CloudFront distribution ID) in the CloudFront statement.
-
 If `s3 sync` ever reports a permission error, add `s3:GetObject` on
-`arn:aws:s3:::kylewillett.com/solar-system-explorer/*`.
+`arn:aws:s3:::kylewillett.com/solar-system/*`.
 
 **Tip:** use a named profile, e.g. `aws configure --profile solar-deploy`, then
 `AWS_PROFILE=solar-deploy npm run deploy`.
 
 ## Notes
 
-- **If you serve the site under a URL path** (e.g. `kylewillett.com/solar-system-explorer/`
-  instead of a subdomain root), set `base: '/solar-system-explorer/'` in
+- **If you serve the site under a URL path** (e.g. `kylewillett.com/solar-system/`
+  instead of a subdomain root), set `base: '/solar-system/'` in
   `vite.config.ts` and rebuild — otherwise assets will 404.

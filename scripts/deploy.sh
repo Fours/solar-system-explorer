@@ -4,7 +4,7 @@
 #
 # Hosting model: private S3 bucket behind CloudFront (OAC). The site is served
 # at a subdomain root; CloudFront's Origin Path points at the
-# "solar-system-explorer" prefix, so Vite's base stays "/" and no path
+# "solar-system" prefix, so Vite's base stays "/" and no path
 # rewriting is needed in the app.
 #
 # Config can be overridden with environment variables, or by creating a
@@ -24,7 +24,7 @@ fi
 
 # ---- Config (env / config-file overrides win) ------------------------------
 BUCKET="${DEPLOY_BUCKET:-kylewillett.com}"
-PREFIX="${DEPLOY_PREFIX:-solar-system-explorer}"
+PREFIX="${DEPLOY_PREFIX:-solar-system}"
 REGION="${DEPLOY_REGION:-us-east-1}"
 
 # ---- Preconditions ---------------------------------------------------------
