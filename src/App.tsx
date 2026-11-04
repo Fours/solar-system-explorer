@@ -2,7 +2,11 @@ import { useEffect, useState } from 'react';
 import Diagram from './components/Diagram'
 import Panel from './components/Panel';
 import Starfield from './components/Starfield'
+import { planetsData, sunData } from './data/data'
 import './App.css'
+
+// Navigation order: Overview ("") → Sun → planets (in data order) → loops back
+const navOrder = ["", sunData.id, ...planetsData.map((p) => p.id)];
 
 function App() {
 
@@ -14,6 +18,15 @@ function App() {
         function onKey(e: KeyboardEvent) {
             if (e.key === "Escape") setSelectedId("");
             if (e.key === " ") { e.preventDefault(); setPaused(p => !p); }
+            if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+                e.preventDefault();
+                const step = e.key === "ArrowRight" ? 1 : -1;
+                setSelectedId((cur) => {
+                    const i = navOrder.indexOf(cur);
+                    const from = i === -1 ? 0 : i;
+                    return navOrder[(from + step + navOrder.length) % navOrder.length];
+                });
+            }
         }
         window.addEventListener("keydown", onKey);
         return () => window.removeEventListener("keydown", onKey);
@@ -41,6 +54,7 @@ function App() {
                 <div>Schematic · Not to Scale</div>
                 <div className="legend">
                     <span><b>Click</b> a body to inspect</span>
+                    <span className="arrow-keys-wrap"><b className="arrow-keys">← →</b> cycle bodies</span>
                     <span><b>Space</b> pause</span>
                     <span><b>Esc</b> overview</span>
                 </div>

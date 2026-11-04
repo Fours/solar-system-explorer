@@ -202,6 +202,18 @@ body {
 
 .hud-bl .legend b { color: var(--ink-dim); font-weight: 500; }
 
+.arrow-keys-wrap {
+    position: relative;
+    top: -2px;
+}
+
+.hud-bl .legend b.arrow-keys {
+  font-size: 1.85em;
+  line-height: 1;
+  vertical-align: -0.16em;
+  letter-spacing: 1px;
+}
+
 .controls {
   position: absolute;
   z-index: 3;
