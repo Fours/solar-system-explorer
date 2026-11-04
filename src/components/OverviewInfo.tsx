@@ -7,7 +7,6 @@ export default function OverviewInfo() {
             <div className="panel-head">
                 <div className="panel-eyebrow">
                     <span>Mission Brief</span>
-                    <span className="id">SOL-00</span>
                 </div>
                 <h1 className="panel-title">The <span className="accent">Solar</span> System</h1>
                 <div className="panel-subtitle">{overviewData.designation}</div>

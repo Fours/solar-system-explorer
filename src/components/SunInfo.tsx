@@ -7,7 +7,6 @@ export default function SunInfo() {
             <div className="panel-head">
                 <div className="panel-eyebrow">
                 <span>Stellar Body</span>
-                <span className="id">SOL-★</span>
                 </div>
                 <h1 className="panel-title">{sunData.name}</h1>
                 <div className="panel-subtitle">{sunData.designation}</div>

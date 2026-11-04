@@ -28,7 +28,6 @@ export default function PlanetInfo({ planet }: PlanetInfoProps) {
         <div className="panel-head">
             <div className="panel-eyebrow">
             <span>Planetary Body</span>
-            <span className="id">SOL-{String(idx).padStart(2, "0")}</span>
             </div>
             <h1 className="panel-title">
             {planet.name} <span className="accent" style={{fontSize: "0.55em", verticalAlign: "0.2em", marginLeft: 8}}>{planet.symbol}</span>
