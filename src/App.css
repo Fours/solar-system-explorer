@@ -528,3 +528,79 @@ body {
   text-transform: uppercase;
   color: var(--ink-faint);
 }
+
+/* ---------- Mobile notice (small screens) ---------- */
+
+.mobile-notice {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 28px;
+  overflow: hidden;
+}
+
+.mobile-notice-card {
+  position: relative;
+  z-index: 1;
+  max-width: 420px;
+  text-align: center;
+}
+
+.mobile-notice .brand-mark {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-style: italic;
+  color: var(--ink);
+  margin-bottom: 28px;
+}
+
+.mobile-notice-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 18px;
+}
+
+.mobile-notice-eyebrow .dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--sun);
+  box-shadow: 0 0 6px var(--sun);
+}
+
+.mobile-notice-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 18px;
+}
+
+.mobile-notice-title .accent { font-style: italic; color: var(--accent); }
+
+.mobile-notice-text {
+  font-family: var(--serif);
+  font-size: 21px;
+  line-height: 1.45;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+
+.mobile-notice-sub {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  line-height: 1.9;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}

@@ -1,14 +1,35 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useSyncExternalStore } from 'react';
 import Diagram from './components/Diagram'
 import Panel from './components/Panel';
 import Starfield from './components/Starfield'
+import MobileNotice from './components/MobileNotice'
 import { planetsData, sunData } from './data/data'
 import './App.css'
 
 // Navigation order: Overview ("") → Sun → planets (in data order) → loops back
 const navOrder = ["", sunData.id, ...planetsData.map((p) => p.id)];
 
+// Below this width the layout (diagram + 420px panel) doesn't work, so show
+// a notice instead. Gated in JS rather than CSS so the orbit animation
+// doesn't run at all on phones.
+const SMALL_SCREEN_QUERY = "(max-width: 900px)";
+
+function subscribeSmallScreen(cb: () => void) {
+    const mql = window.matchMedia(SMALL_SCREEN_QUERY);
+    mql.addEventListener("change", cb);
+    return () => mql.removeEventListener("change", cb);
+}
+
+function getSmallScreen() {
+    return window.matchMedia(SMALL_SCREEN_QUERY).matches;
+}
+
 function App() {
+    const isSmallScreen = useSyncExternalStore(subscribeSmallScreen, getSmallScreen);
+    return isSmallScreen ? <MobileNotice /> : <Explorer />;
+}
+
+function Explorer() {
 
     const [selectedId, setSelectedId] = useState("");
     const [paused, setPaused] = useState(false);
